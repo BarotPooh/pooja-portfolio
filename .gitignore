@@ -1,2 +1,13 @@
 .claude/
 .DS_Store
+
+# Personal source files — keep local, never publish
+*.pdf
+*.docx
+DSC*.jpg
+_Q8A6442*.jpg
+Past Resumes*/
+Profile.pdf
+
+# Keep the optimized site assets tracked
+!assets/

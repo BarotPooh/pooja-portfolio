@@ -442,6 +442,174 @@ button:focus-visible {
   font-size: 0.8rem;
 }
 
+/* Project index cards (link to case studies) */
+
+.project-index {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  list-style: none;
+  padding: 0;
+}
+
+.project-index-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.project-index-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.project-index-card .project-org {
+  margin-bottom: 0.35rem;
+}
+
+.project-index-card h2 {
+  font-size: 1.15rem;
+  margin: 0 0 0.4rem;
+}
+
+.project-index-card p {
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+  margin: 0 0 var(--space-2);
+}
+
+.project-index-card .case-link {
+  margin-top: auto;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Case study pages */
+
+.case-question {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  color: var(--color-ink);
+  max-width: 44ch;
+  margin: 0 0 var(--space-4);
+  line-height: 1.35;
+}
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-4);
+}
+
+.case-meta dt {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+  margin-bottom: 0.25rem;
+}
+
+.case-meta dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+
+.case-block {
+  margin-bottom: var(--space-4);
+  max-width: 68ch;
+}
+
+.case-block h2 {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-2);
+}
+
+.case-block ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.case-block li {
+  margin-bottom: 0.5rem;
+}
+
+.case-outcomes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-outcomes li {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin: 0;
+}
+
+.case-outcomes .outcome-figure {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin-bottom: 0.2rem;
+}
+
+.case-outcomes .outcome-label {
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: var(--space-3);
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  color: var(--color-ink);
+}
+
+.case-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+}
+
+.case-tags li {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  color: var(--color-ink-muted);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
 /* Tools in practice */
 
 .tools-heading {
@@ -599,6 +767,42 @@ button:focus-visible {
 
 .contact-list a:hover {
   text-decoration: underline;
+}
+
+/* About layout (photo + bio) */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.about-photo {
+  position: sticky;
+  top: calc(var(--space-5) + 1rem);
+}
+
+.about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.about-text p:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 720px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .about-photo {
+    position: static;
+    max-width: 220px;
+  }
 }
 
 /* Page hero (inner pages) */
