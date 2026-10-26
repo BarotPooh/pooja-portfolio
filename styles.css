@@ -51,6 +51,11 @@ h1, h2, h3 {
   font-family: var(--font-heading);
   color: var(--color-ink);
   line-height: 1.2;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 h1 {
@@ -295,6 +300,14 @@ button:focus-visible {
 .lede {
   font-size: 1.05rem;
   color: var(--color-ink-muted);
+  max-width: 70ch;
+}
+
+/* Keep running text at a readable measure (≈65–75 characters) */
+.about-text p,
+.case-block p,
+.page-hero p {
+  max-width: 68ch;
 }
 
 .stat-grid {
@@ -891,6 +904,11 @@ button:focus-visible {
   color: var(--color-ink-muted);
   margin: 0;
   font-size: 1rem;
+}
+
+.page-hero .project-org {
+  color: var(--color-accent-dark);
+  margin-bottom: 0.5rem;
 }
 
 /* Home capabilities highlight */
