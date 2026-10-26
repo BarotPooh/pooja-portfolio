@@ -1,11 +1,16 @@
 :root {
-  --color-ink: #1c1b1a;
-  --color-ink-muted: #5c584f;
-  --color-border: #e5e1d8;
-  --color-bg: #fdfcfa;
-  --color-bg-alt: #f4f1ea;
-  --color-accent: #a8503c;
-  --color-accent-dark: #7c3a2a;
+  /* Winter editorial palette — Frozen Lake + Winter Berry on an off-white base */
+  --color-ink: #141a33;          /* deep navy-black text */
+  --color-ink-muted: #4c5a73;    /* slate-navy muted text (AA on bg) */
+  --color-border: #e4e7ec;       /* cool light border */
+  --color-bg: #fcfcfb;           /* neutral off-white base */
+  --color-bg-alt: #eef2f5;       /* soft ice-slate tint */
+  --color-accent: #8e0a1e;       /* berry — primary accent / CTA */
+  --color-accent-dark: #6e0816;  /* deep berry — links / hover */
+  --color-accent-2: #2e6f40;     /* forest green — secondary accent */
+  --color-navy: #0c1540;         /* deep navy — dark sections */
+  --color-navy-soft: #1a2456;    /* lifted navy for cards on dark */
+  --color-ice: #add8e6;          /* ice blue — accent on dark */
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -219,8 +224,60 @@ button:focus-visible {
 /* Hero (home) */
 
 .hero {
-  padding: clamp(4rem, 9vw, 7rem) 0;
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
   text-align: center;
+}
+
+/* Hybrid hero: serif statement flanked by framed photos */
+.hero-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.5fr 0.8fr;
+  align-items: center;
+  gap: clamp(1rem, 3.5vw, 2.75rem);
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-frame {
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  box-shadow: 0 18px 40px rgba(12, 21, 64, 0.14);
+}
+
+.hero-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-frame--a {
+  transform: translateY(1.5rem) rotate(-1.5deg);
+}
+
+.hero-frame--b {
+  transform: translateY(-1.5rem) rotate(1.5deg);
+}
+
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .hero-content {
+    order: -1;
+  }
+  .hero-frame {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .hero-frame--a,
+  .hero-frame--b {
+    transform: none;
+  }
 }
 
 .hero-eyebrow {
@@ -240,6 +297,7 @@ button:focus-visible {
 }
 
 .hero-suffix {
+  display: block;
   color: var(--color-ink-muted);
   font-weight: 400;
   font-style: italic;
@@ -718,6 +776,66 @@ button:focus-visible {
   margin: 0 0 var(--space-2);
 }
 
+/* Logo wall (tools) */
+
+.logo-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  list-style: none;
+  padding: 0;
+}
+
+.logo-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 2;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.85rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.logo-chip img {
+  max-width: 100%;
+  max-height: 38px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.78;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.logo-chip:hover {
+  border-color: var(--color-ice);
+  transform: translateY(-2px);
+}
+
+.logo-chip:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* Company logo on experience timeline */
+
+.timeline-logo {
+  height: 30px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  margin-bottom: 0.6rem;
+  filter: grayscale(1);
+  opacity: 0.85;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.timeline-item:hover .timeline-logo {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
 /* Toolbelt (grouped by function) */
 
 .toolbelt {
@@ -922,6 +1040,134 @@ button:focus-visible {
 .page-hero .project-org {
   color: var(--color-accent-dark);
   margin-bottom: 0.5rem;
+}
+
+/* Dark page-hero variant — one high-contrast moment, used on Projects */
+
+.page-hero.is-dark {
+  background: var(--color-navy);
+  border-bottom: 1px solid var(--color-navy-soft);
+  color: #fff;
+}
+
+.page-hero.is-dark h1 {
+  color: #fff;
+}
+
+.page-hero.is-dark p {
+  color: var(--color-ice);
+}
+
+/* Projects storyboard — numbered panels read top to bottom like a story */
+
+.storyboard {
+  position: relative;
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+}
+
+.storyboard::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 27px;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.storyboard-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: var(--space-3);
+  padding-bottom: var(--space-5);
+}
+
+.storyboard-item:last-child {
+  padding-bottom: 0;
+}
+
+.storyboard-number {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--color-accent-dark);
+}
+
+.storyboard-panel {
+  display: block;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.storyboard-panel:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(12, 21, 64, 0.1);
+}
+
+.storyboard-panel .project-org {
+  margin-bottom: 0.35rem;
+}
+
+.storyboard-panel h2 {
+  font-size: 1.2rem;
+  margin: 0 0 0.6rem;
+}
+
+.storyboard-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-navy);
+  font-size: 1.05rem;
+  margin: 0 0 0.6rem;
+  line-height: 1.35;
+}
+
+.storyboard-panel p.storyboard-result {
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+  margin: 0 0 var(--space-2);
+}
+
+.storyboard-panel .case-link {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 560px) {
+  .storyboard::before {
+    left: 19px;
+  }
+
+  .storyboard-item {
+    grid-template-columns: 40px 1fr;
+    gap: var(--space-2);
+  }
+
+  .storyboard-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
 /* Home capabilities highlight */
