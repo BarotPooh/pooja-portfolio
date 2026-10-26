@@ -3,16 +3,26 @@ document.documentElement.classList.add("js");
 const navToggle = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
 
+function setMenu(open) {
+  navLinks.classList.toggle("is-open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  document.body.style.overflow = open ? "hidden" : "";
+}
+
 navToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
+  setMenu(!navLinks.classList.contains("is-open"));
 });
 
 navLinks.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-  });
+  link.addEventListener("click", () => setMenu(false));
+});
+
+// Close the overlay on Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && navLinks.classList.contains("is-open")) {
+    setMenu(false);
+    navToggle.focus();
+  }
 });
 
 const revealTargets = document.querySelectorAll(".reveal");
