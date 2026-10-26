@@ -644,6 +644,74 @@ button:focus-visible {
   margin-bottom: 0;
 }
 
+/* Core competency domains */
+
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  list-style: none;
+  padding: 0;
+}
+
+.domain-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.domain-card:nth-child(5n+2) { border-top-color: var(--color-slate-700, #39414f); }
+.domain-card:nth-child(5n+3) { border-top-color: var(--color-accent-dark); }
+
+.domain-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(28, 27, 26, 0.07);
+}
+
+.domain-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  margin-bottom: 0.4rem;
+}
+
+.domain-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.4rem;
+}
+
+.domain-desc {
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+  margin: 0 0 var(--space-2);
+}
+
+/* Toolbelt (grouped by function) */
+
+.toolbelt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.tool-category > h3 {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-ink-muted);
+  margin: 0 0 var(--space-2);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
 /* Skills */
 
 .skills-grid {
