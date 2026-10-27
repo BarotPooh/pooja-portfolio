@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -34,6 +34,7 @@
         <li><a href="experience.html">Experience</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
+        <li><a href="tools.html">Tools</a></li>
         <li><a href="education.html">Education</a></li>
         <li><a href="contact.html" class="is-active">Contact</a></li>
       </ul>
@@ -51,15 +52,30 @@
           Open to full-time roles in marketing analytics, business analysis, GTM strategy, and brand
           strategy. Available to start immediately. No sponsorship required.
         </p>
-        <ul class="contact-list reveal">
+        <div class="contact-cta reveal">
+          <h2>Let's talk about your next hire</h2>
+          <p>The fastest way to reach me is email. I usually reply within a day.</p>
+          <a class="btn btn-primary" href="mailto:poobarot96@gmail.com">Email me &rarr;</a>
+        </div>
+
+        <ul class="contact-cards reveal">
           <li>
-            <a href="mailto:poobarot96@gmail.com">poobarot96@gmail.com</a>
+            <a class="contact-card" href="mailto:poobarot96@gmail.com">
+              <p class="contact-card-label">Email</p>
+              <p class="contact-card-value">poobarot96@gmail.com</p>
+            </a>
           </li>
           <li>
-            <a href="tel:+16232309239">+1 623-230-9239</a>
+            <a class="contact-card" href="tel:+16232309239">
+              <p class="contact-card-label">Phone</p>
+              <p class="contact-card-value">+1 623-230-9239</p>
+            </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/poojadbarot" target="_blank" rel="noopener noreferrer">linkedin.com/in/poojadbarot</a>
+            <a class="contact-card" href="https://www.linkedin.com/in/poojadbarot" target="_blank" rel="noopener noreferrer">
+              <p class="contact-card-label">LinkedIn</p>
+              <p class="contact-card-value">linkedin.com/in/poojadbarot</p>
+            </a>
           </li>
         </ul>
       </div>
@@ -76,6 +92,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

@@ -39,3 +39,36 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealTargets.forEach((target) => revealObserver.observe(target));
+
+// Nav-brand click: confetti burst, plus a full replay of the homepage motion
+const navBrand = document.getElementById("navBrand");
+const burstColors = ["#8e0a1e", "#2e6f40", "#0c1540", "#6e0816", "#1a2456", "#add8e6"];
+
+function burstConfetti(origin) {
+  for (let i = 0; i < 10; i++) {
+    const dot = document.createElement("span");
+    dot.className = "brand-confetti";
+    const angle = (Math.PI * 2 * i) / 10 + Math.random() * 0.4;
+    const distance = 36 + Math.random() * 28;
+    dot.style.setProperty("--tx", `${Math.cos(angle) * distance}px`);
+    dot.style.setProperty("--ty", `${Math.sin(angle) * distance}px`);
+    dot.style.background = burstColors[i % burstColors.length];
+    origin.appendChild(dot);
+    dot.addEventListener("animationend", () => dot.remove());
+  }
+}
+
+if (navBrand) {
+  navBrand.addEventListener("click", (e) => {
+    burstConfetti(navBrand);
+
+    if (document.body.classList.contains("is-home")) {
+      e.preventDefault();
+      document.body.classList.remove("animate-replay");
+      // eslint-disable-next-line no-unused-expressions
+      void document.body.offsetWidth; // restart animation
+      document.body.classList.add("animate-replay");
+      setTimeout(() => document.body.classList.remove("animate-replay"), 1200);
+    }
+  });
+}
