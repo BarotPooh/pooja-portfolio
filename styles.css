@@ -1,16 +1,16 @@
 :root {
-  /* Winter editorial palette — Frozen Lake + Winter Berry on an off-white base */
+  /* Winter editorial palette: Frozen Lake + Winter Berry on an off-white base */
   --color-ink: #141a33;          /* deep navy-black text */
   --color-ink-muted: #4c5a73;    /* slate-navy muted text (AA on bg) */
   --color-border: #e4e7ec;       /* cool light border */
   --color-bg: #fcfcfb;           /* neutral off-white base */
   --color-bg-alt: #eef2f5;       /* soft ice-slate tint */
-  --color-accent: #8e0a1e;       /* berry — primary accent / CTA */
-  --color-accent-dark: #6e0816;  /* deep berry — links / hover */
-  --color-accent-2: #2e6f40;     /* forest green — secondary accent */
-  --color-navy: #0c1540;         /* deep navy — dark sections */
+  --color-accent: #8e0a1e;       /* berry, primary accent / CTA */
+  --color-accent-dark: #6e0816;  /* deep berry, links / hover */
+  --color-accent-2: #2e6f40;     /* forest green, secondary accent */
+  --color-navy: #0c1540;         /* deep navy, dark sections */
   --color-navy-soft: #1a2456;    /* lifted navy for cards on dark */
-  --color-ice: #add8e6;          /* ice blue — accent on dark */
+  --color-ice: #add8e6;          /* ice blue, accent on dark */
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -1042,7 +1042,7 @@ button:focus-visible {
   margin-bottom: 0.5rem;
 }
 
-/* Dark page-hero variant — one high-contrast moment, used on Projects */
+/* Dark page-hero variant: one high-contrast moment, used on Projects */
 
 .page-hero.is-dark {
   background: var(--color-navy);
@@ -1058,7 +1058,7 @@ button:focus-visible {
   color: var(--color-ice);
 }
 
-/* Projects storyboard — numbered panels read top to bottom like a story */
+/* Projects storyboard: numbered panels read top to bottom like a story */
 
 .storyboard {
   position: relative;
