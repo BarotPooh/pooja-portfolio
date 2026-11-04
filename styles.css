@@ -1,16 +1,18 @@
 :root {
-  /* Winter editorial palette: Frozen Lake + Winter Berry on an off-white base */
-  --color-ink: #141a33;          /* deep navy-black text */
-  --color-ink-muted: #4c5a73;    /* slate-navy muted text (AA on bg) */
-  --color-border: #e4e7ec;       /* cool light border */
-  --color-bg: #fcfcfb;           /* neutral off-white base */
-  --color-bg-alt: #eef2f5;       /* soft ice-slate tint */
-  --color-accent: #8e0a1e;       /* berry, primary accent / CTA */
-  --color-accent-dark: #6e0816;  /* deep berry, links / hover */
-  --color-accent-2: #2e6f40;     /* forest green, secondary accent */
-  --color-navy: #0c1540;         /* deep navy, dark sections */
-  --color-navy-soft: #1a2456;    /* lifted navy for cards on dark */
-  --color-ice: #add8e6;          /* ice blue, accent on dark */
+  /* Palette: 2 primary (Frozen Lake) + 2 accent (Winter Berry). Every other
+     token below is a computed tint/shade of these four, not a new color. */
+  --color-navy: #000080;         /* primary 1: Frozen Lake navy */
+  --color-ice: #add8e6;          /* primary 2: Frozen Lake ice blue */
+  --color-accent: #8e0a1e;       /* accent 1: Winter Berry */
+  --color-accent-2: #2e6f40;     /* accent 2: Winter Berry forest green */
+
+  --color-ink: var(--color-navy);
+  --color-ink-muted: color-mix(in srgb, var(--color-navy) 70%, white);
+  --color-border: color-mix(in srgb, var(--color-ice) 25%, white);
+  --color-bg: #fffafa;           /* Frozen Lake snow */
+  --color-bg-alt: color-mix(in srgb, var(--color-ice) 18%, var(--color-bg));
+  --color-accent-dark: color-mix(in srgb, var(--color-accent) 80%, black);
+  --color-navy-soft: color-mix(in srgb, var(--color-navy) 88%, white);
 
   --font-sans: "Fauna One", Georgia, "Times New Roman", serif;
   --font-heading: "Cinzel", Georgia, "Times New Roman", serif;
@@ -747,7 +749,6 @@ button:focus-visible {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.domain-card:nth-child(5n+2) { border-top-color: var(--color-slate-700, #39414f); }
 .domain-card:nth-child(5n+3) { border-top-color: var(--color-accent-dark); }
 
 .domain-card:hover {
@@ -1216,7 +1217,6 @@ button:focus-visible {
   padding-top: var(--space-2);
 }
 
-.capability:nth-child(5n+2) { border-top-color: var(--color-slate-700, #39414f); }
 .capability:nth-child(5n+3) { border-top-color: var(--color-accent-dark); }
 
 .capability .cap-num {
@@ -1740,12 +1740,12 @@ button:focus-visible {
 
 .page-link-icon { display: block; margin-bottom: 0.5rem; }
 .page-link-icon svg { width: 28px; height: 28px; }
-.page-links-grid .page-link-card:nth-child(1) { background: linear-gradient(160deg, rgba(142, 10, 30, 0.07), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(2) { background: linear-gradient(160deg, rgba(46, 111, 64, 0.07), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(3) { background: linear-gradient(160deg, rgba(12, 21, 64, 0.07), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(4) { background: linear-gradient(160deg, rgba(173, 216, 230, 0.18), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(5) { background: linear-gradient(160deg, rgba(110, 8, 22, 0.07), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(6) { background: linear-gradient(160deg, rgba(26, 36, 86, 0.07), transparent 65%); }
+.page-links-grid .page-link-card:nth-child(1) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent) 7%, transparent), transparent 65%); }
+.page-links-grid .page-link-card:nth-child(2) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent-2) 7%, transparent), transparent 65%); }
+.page-links-grid .page-link-card:nth-child(3) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-navy) 7%, transparent), transparent 65%); }
+.page-links-grid .page-link-card:nth-child(4) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-ice) 18%, transparent), transparent 65%); }
+.page-links-grid .page-link-card:nth-child(5) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent-dark) 7%, transparent), transparent 65%); }
+.page-links-grid .page-link-card:nth-child(6) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-navy-soft) 7%, transparent), transparent 65%); }
 .page-links-grid .page-link-card:nth-child(1) .page-link-arrow,
 .page-links-grid .page-link-card:nth-child(1) .page-link-icon { color: var(--color-accent); }
 .page-links-grid .page-link-card:nth-child(2) .page-link-arrow,
