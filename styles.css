@@ -374,7 +374,6 @@ button:focus-visible {
 }
 
 /* Keep running text at a readable measure (≈65–75 characters) */
-.about-text p,
 .case-block p,
 .page-hero p {
   max-width: 68ch;
@@ -981,40 +980,61 @@ button:focus-visible {
   text-decoration: underline;
 }
 
-/* About layout (photo + bio) */
+/* About: short-story layout with photos framing a centered text column */
 
-.about-layout {
+.about-story {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: var(--space-4);
-  align-items: start;
+  grid-template-columns: 1fr minmax(0, 520px) 1fr;
+  grid-template-rows: repeat(2, auto);
+  gap: var(--space-3);
+  align-items: center;
 }
 
-.about-photo {
-  position: sticky;
-  top: calc(var(--space-5) + 1rem);
-}
-
-.about-photo img {
-  width: 100%;
-  height: auto;
+.about-photo-tile {
+  margin: 0;
   border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 10px 24px rgba(12, 21, 64, 0.1);
+}
+
+.about-photo-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-.about-text p:first-child {
-  margin-top: 0;
+.about-photo-tile--1 { grid-column: 1; grid-row: 1; transform: rotate(-2deg); }
+.about-photo-tile--2 { grid-column: 1; grid-row: 2; transform: rotate(2deg); }
+.about-photo-tile--3 { grid-column: 3; grid-row: 1; transform: rotate(2deg); }
+.about-photo-tile--4 { grid-column: 3; grid-row: 2; transform: rotate(-2deg); }
+
+.about-story-text {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  text-align: center;
 }
 
-@media (max-width: 720px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
+.about-story-text p {
+  margin: 0 0 var(--space-2);
+}
+
+.about-story-text p:last-child {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .about-story {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
   }
-  .about-photo {
-    position: static;
-    max-width: 220px;
-  }
+  .about-photo-tile--1 { grid-column: 1; grid-row: 1; }
+  .about-photo-tile--2 { grid-column: 2; grid-row: 1; }
+  .about-story-text { grid-column: 1 / span 2; grid-row: 2; }
+  .about-photo-tile--3 { grid-column: 1; grid-row: 3; }
+  .about-photo-tile--4 { grid-column: 2; grid-row: 3; }
 }
 
 /* Page hero (inner pages) */
@@ -1334,122 +1354,6 @@ button:focus-visible {
   transform: translateX(4px);
 }
 
-/* About page: chapter markers + decorative accent behind photo */
-
-.about-photo {
-  position: sticky;
-  top: calc(var(--space-5) + 1rem);
-}
-
-.about-photo-frame {
-  position: relative;
-  z-index: 1;
-}
-
-.about-photo {
-  position: relative;
-}
-
-.about-photo-accent {
-  display: block;
-  position: absolute;
-  top: -16px;
-  right: -16px;
-  width: 65%;
-  aspect-ratio: 1;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
-  border-radius: 50%;
-  z-index: 0;
-  opacity: 0.2;
-}
-
-.about-chapter {
-  display: flex;
-  gap: var(--space-2);
-  align-items: flex-start;
-}
-
-.about-chapter + .about-chapter {
-  margin-top: var(--space-3);
-}
-
-.about-chapter-mark {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.8rem;
-  color: #fff;
-  margin-top: 0.15rem;
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.js .reveal.about-chapter .about-chapter-mark {
-  transform: scale(0.3) rotate(-60deg);
-}
-
-.js .reveal.about-chapter.is-visible .about-chapter-mark {
-  transform: scale(1) rotate(0deg);
-}
-
-.about-chapter:nth-of-type(1) .about-chapter-mark { transition-delay: 0.05s; }
-.about-chapter:nth-of-type(2) .about-chapter-mark { transition-delay: 0.1s; }
-.about-chapter:nth-of-type(3) .about-chapter-mark { transition-delay: 0.15s; }
-.about-chapter:nth-of-type(4) .about-chapter-mark { transition-delay: 0.2s; }
-.about-chapter:nth-of-type(5) .about-chapter-mark { transition-delay: 0.25s; }
-.about-chapter:nth-of-type(6) .about-chapter-mark { transition-delay: 0.3s; }
-
-.about-chapter:nth-of-type(1) .about-chapter-mark { background: var(--color-accent); }
-.about-chapter:nth-of-type(2) .about-chapter-mark { background: var(--color-accent-2); }
-.about-chapter:nth-of-type(3) .about-chapter-mark { background: var(--color-navy); }
-.about-chapter:nth-of-type(4) .about-chapter-mark { background: var(--color-accent-dark); }
-.about-chapter:nth-of-type(5) .about-chapter-mark { background: var(--color-navy-soft); }
-.about-chapter:nth-of-type(6) .about-chapter-mark { background: var(--color-accent); }
-
-.about-life-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-3);
-  margin: var(--space-3) 0 0;
-  list-style: none;
-  padding: 0;
-}
-
-.about-life-strip li {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  aspect-ratio: 3 / 4;
-}
-
-.about-life-strip img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.about-life-strip span {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.6rem 0.8rem;
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  color: #fff;
-  background: linear-gradient(0deg, rgba(12, 21, 64, 0.75), transparent);
-}
-
-.about-chapter p {
-  margin: 0;
-}
-
 /* Experience: short "what this company is" line */
 
 .timeline-about {
@@ -1694,14 +1598,6 @@ button:focus-visible {
   transform: translateY(0);
 }
 
-.js .reveal.about-chapter {
-  transform: translateX(-22px);
-}
-
-.js .reveal.about-chapter.is-visible {
-  transform: translateX(0);
-}
-
 /* Responsive nav */
 
 @media (max-width: 720px) {
@@ -1923,12 +1819,6 @@ button:focus-visible {
   .animate-replay .cta-pill,
   .brand-confetti {
     animation: none !important;
-  }
-
-  .about-chapter-mark,
-  .js .reveal.about-chapter {
-    transition: none !important;
-    transform: none !important;
   }
 
   .js .tool-category .tool-card,
