@@ -1402,12 +1402,49 @@ button:focus-visible {
 .about-chapter:nth-of-type(3) .about-chapter-mark { transition-delay: 0.15s; }
 .about-chapter:nth-of-type(4) .about-chapter-mark { transition-delay: 0.2s; }
 .about-chapter:nth-of-type(5) .about-chapter-mark { transition-delay: 0.25s; }
+.about-chapter:nth-of-type(6) .about-chapter-mark { transition-delay: 0.3s; }
 
 .about-chapter:nth-of-type(1) .about-chapter-mark { background: var(--color-accent); }
 .about-chapter:nth-of-type(2) .about-chapter-mark { background: var(--color-accent-2); }
 .about-chapter:nth-of-type(3) .about-chapter-mark { background: var(--color-navy); }
 .about-chapter:nth-of-type(4) .about-chapter-mark { background: var(--color-accent-dark); }
 .about-chapter:nth-of-type(5) .about-chapter-mark { background: var(--color-navy-soft); }
+.about-chapter:nth-of-type(6) .about-chapter-mark { background: var(--color-accent); }
+
+.about-life-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-3) 0 0;
+  list-style: none;
+  padding: 0;
+}
+
+.about-life-strip li {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.about-life-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-life-strip span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.6rem 0.8rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: #fff;
+  background: linear-gradient(0deg, rgba(12, 21, 64, 0.75), transparent);
+}
 
 .about-chapter p {
   margin: 0;
