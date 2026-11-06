@@ -40,11 +40,15 @@ const revealObserver = new IntersectionObserver(
 
 revealTargets.forEach((target) => revealObserver.observe(target));
 
-// Nav-brand click: confetti burst, plus a full replay of the homepage motion
-const navBrand = document.getElementById("navBrand");
+// Confetti burst on click, anywhere on any page
 const burstColors = ["#8e0a1e", "#2e6f40", "#0c1540", "#6e0816", "#1a2456", "#add8e6"];
 
-function burstConfetti(origin) {
+function burstConfettiAt(x, y) {
+  const origin = document.createElement("div");
+  origin.className = "confetti-origin";
+  origin.style.left = `${x}px`;
+  origin.style.top = `${y}px`;
+  document.body.appendChild(origin);
   for (let i = 0; i < 10; i++) {
     const dot = document.createElement("span");
     dot.className = "brand-confetti";
@@ -56,12 +60,17 @@ function burstConfetti(origin) {
     origin.appendChild(dot);
     dot.addEventListener("animationend", () => dot.remove());
   }
+  setTimeout(() => origin.remove(), 800);
 }
 
+document.addEventListener("click", (e) => {
+  burstConfettiAt(e.clientX, e.clientY);
+});
+
+// Nav-brand click: replay the full homepage hero motion
+const navBrand = document.getElementById("navBrand");
 if (navBrand) {
   navBrand.addEventListener("click", (e) => {
-    burstConfetti(navBrand);
-
     if (document.body.classList.contains("is-home")) {
       e.preventDefault();
       document.body.classList.remove("animate-replay");
