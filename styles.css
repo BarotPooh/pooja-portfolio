@@ -1626,6 +1626,28 @@ button:focus-visible {
   background: var(--color-ice);
 }
 
+.contact-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.contact-cta .btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.contact-cta .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.contact-meta {
+  margin: var(--space-2) 0 0;
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+}
+
 .contact-cards {
   list-style: none;
   padding: 0;
