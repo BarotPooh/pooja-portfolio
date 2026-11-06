@@ -450,6 +450,11 @@ button:focus-visible {
   margin-bottom: 0.4rem;
 }
 
+.timeline-item--compact p {
+  margin: 0;
+  color: var(--color-ink);
+}
+
 
 /* Projects (clean divided list, matches Experience) */
 
