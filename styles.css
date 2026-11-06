@@ -891,46 +891,88 @@ button:focus-visible {
   font-size: 0.9rem;
 }
 
-/* Education */
+/* Education: formal CV-style rows, no card chrome */
 
-.education-list,
-.cert-list {
+.cv-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.education-list li {
+.cv-entry {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
   padding: var(--space-2) 0;
   border-top: 1px solid var(--color-border);
 }
 
-.education-list li:first-child {
+.cv-entry:first-child {
   border-top: none;
 }
 
-.ed-degree {
-  font-weight: 600;
-  margin-bottom: 0.1rem;
+.cv-logo {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  margin-top: 0.3rem;
+  filter: grayscale(1);
+  opacity: 0.7;
 }
 
-.ed-school {
-  color: var(--color-ink-muted);
-  margin-bottom: 0.1rem;
+.cv-entry-body {
+  flex: 1;
+  min-width: 0;
 }
 
-.ed-dates {
-  color: var(--color-ink-muted);
-  font-size: 0.85rem;
+.cv-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+
+.cv-entry-head h3 {
   margin: 0;
 }
 
-.cert-list li {
-  padding: 0.5rem 0;
-  border-top: 1px solid var(--color-border);
+.cv-entry-dates {
+  flex-shrink: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
 
-.cert-list li:first-child {
+.cv-entry-org {
+  color: var(--color-ink-muted);
+  margin: 0.15rem 0 0;
+}
+
+.cv-cert-group + .cv-cert-group {
+  margin-top: var(--space-3);
+}
+
+.cv-cert-group h3 {
+  font-size: 0.95rem;
+  color: var(--color-accent-dark);
+  margin: 0 0 0.5rem;
+}
+
+.cv-cert-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cv-cert-list li {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink);
+}
+
+.cv-cert-list li:first-child {
   border-top: none;
 }
 
@@ -1551,51 +1593,6 @@ button:focus-visible {
 .tool-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(28, 27, 26, 0.08);
-}
-
-/* Education: logo-bearing rows */
-
-.education-list li,
-.cert-list li {
-  display: flex;
-  gap: var(--space-2);
-  align-items: flex-start;
-}
-
-.ed-logo,
-.cert-badge {
-  flex-shrink: 0;
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--color-border);
-  padding: 5px;
-}
-
-.ed-logo.is-placeholder,
-.cert-badge.is-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.75rem;
-  color: #fff;
-  background: var(--color-accent-dark);
-  border: none;
-}
-
-.cert-name {
-  font-weight: 600;
-  margin-bottom: 0.1rem;
-}
-
-.cert-issuer {
-  color: var(--color-ink-muted);
-  font-size: 0.82rem;
-  margin: 0;
 }
 
 /* Contact: color + clear CTA */
