@@ -1277,48 +1277,76 @@ button:focus-visible {
   }
 }
 
-/* Home page explore links */
+/* Home page explore links: connected journey line */
 
-.page-links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-3);
-  margin-top: var(--space-3);
+.journey {
+  position: relative;
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0 0 0 28px;
 }
 
-.page-link-card {
+.journey::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: color-mix(in srgb, var(--color-navy) 20%, transparent);
+}
+
+.journey-step {
+  position: relative;
+  padding-bottom: var(--space-3);
+}
+
+.journey-step:last-child {
+  padding-bottom: 0;
+}
+
+.journey-step a {
   display: block;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--space-3);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.15s ease;
+  transition: transform 0.15s ease;
 }
 
-.page-link-card:hover {
-  border-color: var(--color-accent);
+.journey-step a:hover,
+.journey-step a:focus-visible {
+  transform: translateX(4px);
 }
 
-.page-link-card h3 {
-  color: var(--color-ink);
-  margin-bottom: 0.4rem;
+.journey-dot {
+  position: absolute;
+  left: -28px;
+  top: 5px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--color-accent);
 }
 
-.page-link-card p {
-  color: var(--color-ink-muted);
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-.page-link-arrow {
-  display: inline-block;
-  margin-top: var(--space-2);
-  color: var(--color-accent-dark);
+.journey-title {
+  display: block;
+  font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.15rem;
+  color: var(--color-accent);
 }
+
+.journey-desc {
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+}
+
+.journey-step:nth-child(2) .journey-dot { background: var(--color-accent-2); }
+.journey-step:nth-child(2) .journey-title { color: var(--color-accent-2); }
+.journey-step:nth-child(3) .journey-dot { background: var(--color-navy); }
+.journey-step:nth-child(3) .journey-title { color: var(--color-navy); }
+.journey-step:nth-child(4) .journey-dot { background: var(--color-accent-dark); }
+.journey-step:nth-child(4) .journey-title { color: var(--color-accent-dark); }
 
 /* Footer */
 
@@ -1355,42 +1383,6 @@ button:focus-visible {
 
 .footer-links a:hover {
   color: var(--color-ink);
-}
-
-/* Where to next: colored top borders + motion */
-
-.page-link-card {
-  position: relative;
-  border-top: 3px solid var(--color-border);
-  transition: border-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.page-link-card:hover,
-.page-link-card:focus-visible {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(12, 21, 64, 0.14);
-}
-
-.page-links-grid .page-link-card:nth-child(1) { border-top-color: var(--color-accent); }
-.page-links-grid .page-link-card:nth-child(2) { border-top-color: var(--color-accent-2); }
-.page-links-grid .page-link-card:nth-child(3) { border-top-color: var(--color-navy); }
-.page-links-grid .page-link-card:nth-child(4) { border-top-color: var(--color-ice); }
-.page-links-grid .page-link-card:nth-child(5) { border-top-color: var(--color-accent-dark); }
-.page-links-grid .page-link-card:nth-child(6) { border-top-color: var(--color-navy-soft); }
-
-.page-links-grid .page-link-card:nth-child(1) { transition-delay: 0s; }
-.page-links-grid .page-link-card:nth-child(2) { transition-delay: 0.06s; }
-.page-links-grid .page-link-card:nth-child(3) { transition-delay: 0.12s; }
-.page-links-grid .page-link-card:nth-child(4) { transition-delay: 0.18s; }
-.page-links-grid .page-link-card:nth-child(5) { transition-delay: 0.24s; }
-.page-links-grid .page-link-card:nth-child(6) { transition-delay: 0.3s; }
-
-.page-link-arrow {
-  transition: transform 0.2s ease;
-}
-
-.page-link-card:hover .page-link-arrow {
-  transform: translateX(4px);
 }
 
 /* Experience: short "what this company is" line */
@@ -1758,28 +1750,6 @@ button:focus-visible {
   box-shadow: 0 12px 24px rgba(142, 10, 30, 0.28);
 }
 
-.page-link-icon { display: block; margin-bottom: 0.5rem; }
-.page-link-icon svg { width: 28px; height: 28px; }
-.page-links-grid .page-link-card:nth-child(1) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent) 7%, transparent), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(2) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent-2) 7%, transparent), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(3) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-navy) 7%, transparent), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(4) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-ice) 18%, transparent), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(5) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent-dark) 7%, transparent), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(6) { background: linear-gradient(160deg, color-mix(in srgb, var(--color-navy-soft) 7%, transparent), transparent 65%); }
-.page-links-grid .page-link-card:nth-child(1) .page-link-arrow,
-.page-links-grid .page-link-card:nth-child(1) .page-link-icon { color: var(--color-accent); }
-.page-links-grid .page-link-card:nth-child(2) .page-link-arrow,
-.page-links-grid .page-link-card:nth-child(2) .page-link-icon { color: var(--color-accent-2); }
-.page-links-grid .page-link-card:nth-child(3) .page-link-arrow,
-.page-links-grid .page-link-card:nth-child(3) .page-link-icon { color: var(--color-navy); }
-.page-links-grid .page-link-card:nth-child(4) .page-link-arrow,
-.page-links-grid .page-link-card:nth-child(4) .page-link-icon { color: var(--color-ink); }
-.page-links-grid .page-link-card:nth-child(5) .page-link-arrow,
-.page-links-grid .page-link-card:nth-child(5) .page-link-icon { color: var(--color-accent-dark); }
-.page-links-grid .page-link-card:nth-child(6) .page-link-arrow,
-.page-links-grid .page-link-card:nth-child(6) .page-link-icon { color: var(--color-navy-soft); }
-.page-link-card .page-link-arrow { font-weight: 700; }
-
 /* Click-the-name motion + confetti burst */
 .nav-brand { position: relative; }
 .brand-confetti {
@@ -1819,15 +1789,15 @@ button:focus-visible {
 .animate-replay .hero-frame--b { animation: homeWiggleB 0.7s ease; }
 .animate-replay .stat,
 .animate-replay .capability,
-.animate-replay .page-link-card {
+.animate-replay .journey-step {
   animation: homePop 0.5s ease backwards;
 }
-.animate-replay .stat:nth-child(1), .animate-replay .capability:nth-child(1), .animate-replay .page-link-card:nth-child(1) { animation-delay: 0.02s; }
-.animate-replay .stat:nth-child(2), .animate-replay .capability:nth-child(2), .animate-replay .page-link-card:nth-child(2) { animation-delay: 0.08s; }
-.animate-replay .stat:nth-child(3), .animate-replay .capability:nth-child(3), .animate-replay .page-link-card:nth-child(3) { animation-delay: 0.14s; }
-.animate-replay .stat:nth-child(4), .animate-replay .capability:nth-child(4), .animate-replay .page-link-card:nth-child(4) { animation-delay: 0.2s; }
-.animate-replay .capability:nth-child(5), .animate-replay .page-link-card:nth-child(5) { animation-delay: 0.26s; }
-.animate-replay .page-link-card:nth-child(6) { animation-delay: 0.32s; }
+.animate-replay .stat:nth-child(1), .animate-replay .capability:nth-child(1), .animate-replay .journey-step:nth-child(1) { animation-delay: 0.02s; }
+.animate-replay .stat:nth-child(2), .animate-replay .capability:nth-child(2), .animate-replay .journey-step:nth-child(2) { animation-delay: 0.08s; }
+.animate-replay .stat:nth-child(3), .animate-replay .capability:nth-child(3), .animate-replay .journey-step:nth-child(3) { animation-delay: 0.14s; }
+.animate-replay .stat:nth-child(4), .animate-replay .capability:nth-child(4), .animate-replay .journey-step:nth-child(4) { animation-delay: 0.2s; }
+.animate-replay .capability:nth-child(5), .animate-replay .journey-step:nth-child(5) { animation-delay: 0.26s; }
+.animate-replay .journey-step:nth-child(6) { animation-delay: 0.32s; }
 .animate-replay .cta-pill { animation: homePop 0.5s ease 0.3s backwards; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1835,7 +1805,7 @@ button:focus-visible {
   .animate-replay .hero-frame--b,
   .animate-replay .stat,
   .animate-replay .capability,
-  .animate-replay .page-link-card,
+  .animate-replay .journey-step,
   .animate-replay .cta-pill,
   .brand-confetti {
     animation: none !important;
