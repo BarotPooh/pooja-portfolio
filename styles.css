@@ -1348,6 +1348,86 @@ button:focus-visible {
 .journey-step:nth-child(4) .journey-dot { background: var(--color-accent-dark); }
 .journey-step:nth-child(4) .journey-title { color: var(--color-accent-dark); }
 
+/* Home page closing CTA band: dark, high-contrast moment before the footer */
+
+.cta-band {
+  background: var(--color-navy);
+  padding: var(--space-5) 0;
+}
+
+.cta-band .kicker-label {
+  color: var(--color-ice);
+}
+
+.cta-band .kicker::after {
+  background: var(--color-navy-soft);
+}
+
+.cta-band-inner {
+  text-align: center;
+}
+
+.cta-band h2 {
+  color: #fff;
+  max-width: 32ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-band .lede {
+  color: var(--color-ice);
+  max-width: none;
+  margin: 0 auto var(--space-3);
+}
+
+.cta-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.cta-band-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.cta-band-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.cta-band-btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.cta-band-btn--primary:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(142, 10, 30, 0.35);
+}
+
+.cta-band-btn--secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid var(--color-ice);
+}
+
+.cta-band-btn--secondary:hover {
+  background: var(--color-navy-soft);
+  transform: translateY(-2px);
+}
+
 /* Footer */
 
 .site-footer {
@@ -1378,11 +1458,12 @@ button:focus-visible {
 }
 
 .footer-links a {
-  color: var(--color-ink-muted);
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .footer-links a:hover {
-  color: var(--color-ink);
+  color: var(--color-accent-dark);
 }
 
 /* Experience: short "what this company is" line */
