@@ -35,12 +35,12 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  { threshold: 0.05 }
 );
 
 revealTargets.forEach((target) => revealObserver.observe(target));
 
-// Confetti burst on click, anywhere on any page
+// Confetti burst at a screen position
 const burstColors = ["#8e0a1e", "#2e6f40", "#0c1540", "#6e0816", "#1a2456", "#add8e6"];
 
 function burstConfettiAt(x, y) {
@@ -63,14 +63,11 @@ function burstConfettiAt(x, y) {
   setTimeout(() => origin.remove(), 800);
 }
 
-document.addEventListener("click", (e) => {
-  burstConfettiAt(e.clientX, e.clientY);
-});
-
-// Nav-brand click: replay the full homepage hero motion
-const navBrand = document.getElementById("navBrand");
+// Nav-brand click: confetti burst, plus a replay of the homepage hero motion
+const navBrand = document.querySelector(".nav-brand");
 if (navBrand) {
   navBrand.addEventListener("click", (e) => {
+    burstConfettiAt(e.clientX, e.clientY);
     if (document.body.classList.contains("is-home")) {
       e.preventDefault();
       document.body.classList.remove("animate-replay");

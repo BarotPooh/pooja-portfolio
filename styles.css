@@ -7,17 +7,17 @@
   --color-accent-2: #2e6f40;     /* accent 2: Winter Berry forest green */
 
   --color-ink: var(--color-navy);
-  --color-ink-muted: color-mix(in srgb, var(--color-navy) 70%, white);
+  --color-text: #1b1d2a;
+  --color-ink-muted: #4a4e62;
   --color-border: color-mix(in srgb, var(--color-ice) 25%, white);
   --color-bg: #fffafa;           /* Frozen Lake snow */
   --color-bg-alt: color-mix(in srgb, var(--color-ice) 18%, var(--color-bg));
   --color-accent-dark: color-mix(in srgb, var(--color-accent) 80%, black);
   --color-navy-soft: color-mix(in srgb, var(--color-navy) 88%, white);
 
-  --font-sans: "Fauna One", Georgia, "Times New Roman", serif;
-  --font-heading: "Cinzel", Georgia, "Times New Roman", serif;
-  --font-display: "Cinzel", Georgia, "Times New Roman", serif;
-  --font-signature: "Mrs Saint Delafield", "Brush Script MT", cursive;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
 
   --max-width: 1000px;
   --space-1: 0.5rem;
@@ -51,7 +51,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  color: var(--color-ink);
+  color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.6;
 }
@@ -172,11 +172,12 @@ button:focus-visible {
 }
 
 .nav-brand {
-  font-family: var(--font-signature);
-  color: var(--color-accent);
-  font-weight: 400;
+  font-family: var(--font-heading);
+  color: var(--color-ink);
+  font-weight: 600;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
   line-height: 1;
 }
 
@@ -229,19 +230,13 @@ button:focus-visible {
 
 .hero {
   padding: clamp(3rem, 7vw, 5.5rem) 0;
-  text-align: center;
 }
 
-/* Hybrid hero: serif statement flanked by framed photos */
 .hero-layout {
   display: grid;
-  grid-template-columns: 0.8fr 1.5fr 0.8fr;
+  grid-template-columns: 1.15fr 1fr;
   align-items: center;
-  gap: clamp(1rem, 3.5vw, 2.75rem);
-}
-
-.hero-content {
-  text-align: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
 }
 
 .hero-frame {
@@ -258,29 +253,13 @@ button:focus-visible {
   height: auto;
 }
 
-.hero-frame--a {
-  transform: translateY(1.5rem) rotate(-1.5deg);
-}
-
-.hero-frame--b {
-  transform: translateY(-1.5rem) rotate(1.5deg);
-}
-
 @media (max-width: 900px) {
   .hero-layout {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-  .hero-content {
-    order: -1;
-  }
   .hero-frame {
-    max-width: 320px;
-    margin: 0 auto;
-  }
-  .hero-frame--a,
-  .hero-frame--b {
-    transform: none;
+    max-width: 480px;
   }
 }
 
@@ -304,7 +283,7 @@ button:focus-visible {
   font-size: 1.15rem;
   color: var(--color-ink-muted);
   max-width: 640px;
-  margin: var(--space-1) auto var(--space-1);
+  margin: var(--space-1) 0 var(--space-1);
 }
 
 .hero-location {
@@ -316,7 +295,6 @@ button:focus-visible {
 .hero-actions {
   display: flex;
   gap: var(--space-2);
-  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -1086,22 +1064,6 @@ button:focus-visible {
   margin-bottom: 0.5rem;
 }
 
-/* Dark page-hero variant: one high-contrast moment, used on Projects */
-
-.page-hero.is-dark {
-  background: var(--color-navy);
-  border-bottom: 1px solid var(--color-navy-soft);
-  color: #fff;
-}
-
-.page-hero.is-dark h1 {
-  color: #fff;
-}
-
-.page-hero.is-dark p {
-  color: var(--color-ice);
-}
-
 /* Projects storyboard: numbered panels read top to bottom like a story */
 
 .storyboard {
@@ -1236,11 +1198,6 @@ button:focus-visible {
   border-bottom: 1px solid var(--color-border);
 }
 
-.capability:nth-child(even) {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-
 .capability .cap-num {
   flex-shrink: 0;
   width: 2.4ch;
@@ -1266,24 +1223,6 @@ button:focus-visible {
   font-size: 0.9rem;
   margin: 0;
   max-width: 48ch;
-}
-
-.capability:nth-child(even) h3,
-.capability:nth-child(even) p {
-  margin-left: auto;
-}
-
-@media (max-width: 560px) {
-  .capability:nth-child(even) h3,
-  .capability:nth-child(even) p {
-    margin-left: 0;
-  }
-
-  .capability,
-  .capability:nth-child(even) {
-    flex-direction: row;
-    text-align: left;
-  }
 }
 
 /* Home page explore links: connected journey line */
@@ -1675,8 +1614,8 @@ button:focus-visible {
 
 .js .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .js .reveal.is-visible {
@@ -1777,7 +1716,6 @@ button:focus-visible {
   transition: padding-left 0.2s ease, padding-right 0.2s ease;
 }
 .capability:hover { padding-left: var(--space-1); }
-.capability:nth-child(even):hover { padding-left: 0; padding-right: var(--space-1); }
 .capability:hover .cap-num { opacity: 0.6; }
 .capability .cap-num { transition: opacity 0.2s ease; }
 
@@ -1805,7 +1743,7 @@ button:focus-visible {
   box-shadow: 0 12px 24px rgba(142, 10, 30, 0.28);
 }
 
-/* Click-anywhere confetti burst, plus the click-the-name hero replay */
+/* Confetti burst and hero replay when the name in the nav is clicked */
 .confetti-origin {
   position: fixed;
   top: 0;
@@ -1830,26 +1768,13 @@ button:focus-visible {
   100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
 }
 
-@keyframes homeWiggleA {
-  0% { transform: translateY(1.5rem) rotate(-1.5deg) scale(1); }
-  35% { transform: translateY(1.5rem) rotate(5deg) scale(1.04); }
-  70% { transform: translateY(1.5rem) rotate(-3deg) scale(1.02); }
-  100% { transform: translateY(1.5rem) rotate(-1.5deg) scale(1); }
-}
-@keyframes homeWiggleB {
-  0% { transform: translateY(-1.5rem) rotate(1.5deg) scale(1); }
-  35% { transform: translateY(-1.5rem) rotate(-5deg) scale(1.04); }
-  70% { transform: translateY(-1.5rem) rotate(3deg) scale(1.02); }
-  100% { transform: translateY(-1.5rem) rotate(1.5deg) scale(1); }
-}
 @keyframes homePop {
   0% { transform: scale(0.92) translateY(10px); opacity: 0.5; }
   60% { transform: scale(1.02) translateY(-2px); opacity: 1; }
   100% { transform: scale(1) translateY(0); opacity: 1; }
 }
 
-.animate-replay .hero-frame--a { animation: homeWiggleA 0.7s ease; }
-.animate-replay .hero-frame--b { animation: homeWiggleB 0.7s ease; }
+.animate-replay .hero-frame { animation: homePop 0.5s ease backwards; }
 .animate-replay .stat,
 .animate-replay .capability,
 .animate-replay .journey-step {
@@ -1864,8 +1789,7 @@ button:focus-visible {
 .animate-replay .cta-pill { animation: homePop 0.5s ease 0.3s backwards; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-replay .hero-frame--a,
-  .animate-replay .hero-frame--b,
+  .animate-replay .hero-frame,
   .animate-replay .stat,
   .animate-replay .capability,
   .animate-replay .journey-step,
