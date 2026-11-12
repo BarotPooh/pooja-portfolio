@@ -40,6 +40,40 @@ const revealObserver = new IntersectionObserver(
 
 revealTargets.forEach((target) => revealObserver.observe(target));
 
+// Count the Key Results numbers up from zero when they scroll into view
+const COUNT_UP_MS = 900;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function countUp(el, target) {
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / COUNT_UP_MS, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = `${Math.round(target * eased)}%`;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+if (!prefersReducedMotion) {
+  const countObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        countUp(entry.target, Number(entry.target.dataset.count));
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.6 }
+  );
+  document.querySelectorAll(".stat dd").forEach((dd) => {
+    const match = dd.textContent.trim().match(/^(\d+)%$/);
+    if (!match) return;
+    dd.dataset.count = match[1];
+    countObserver.observe(dd);
+  });
+}
+
 // Confetti burst at a screen position
 const burstColors = ["#8e0a1e", "#2e6f40", "#0c1540", "#6e0816", "#1a2456", "#add8e6"];
 

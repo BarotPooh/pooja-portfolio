@@ -1,23 +1,25 @@
 :root {
-  /* Palette: 2 primary (Frozen Lake) + 2 accent (Winter Berry). Every other
-     token below is a computed tint/shade of these four, not a new color. */
-  --color-navy: #000080;         /* primary 1: Frozen Lake navy */
-  --color-ice: #add8e6;          /* primary 2: Frozen Lake ice blue */
-  --color-accent: #8e0a1e;       /* accent 1: Winter Berry */
-  --color-accent-2: #2e6f40;     /* accent 2: Winter Berry forest green */
+  /* Palette: 2 hero colours (navy, berry) + 2 secondary (slate, ice) from the
+     Frozen Lake and Winter Berry palettes. Every other token below is a
+     computed tint/shade of these four, not a new color. */
+  --color-navy: #000080;         /* hero 1: Frozen Lake navy */
+  --color-accent: #8e0a1e;       /* hero 2: Winter Berry */
+  --color-slate: #6d8196;        /* secondary 1: Frozen Lake slate */
+  --color-ice: #add8e6;          /* secondary 2: Frozen Lake ice blue */
+  --color-accent-2: color-mix(in srgb, var(--color-slate) 78%, black);
 
   --color-ink: var(--color-navy);
-  --color-text: #1b1d2a;
-  --color-ink-muted: #4a4e62;
+  --color-text: color-mix(in srgb, var(--color-navy) 28%, black);
+  --color-ink-muted: color-mix(in srgb, var(--color-slate) 68%, black);
   --color-border: color-mix(in srgb, var(--color-ice) 25%, white);
   --color-bg: #fffafa;           /* Frozen Lake snow */
   --color-bg-alt: color-mix(in srgb, var(--color-ice) 18%, var(--color-bg));
   --color-accent-dark: color-mix(in srgb, var(--color-accent) 80%, black);
   --color-navy-soft: color-mix(in srgb, var(--color-navy) 88%, white);
 
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-heading: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
 
   --max-width: 1000px;
   --space-1: 0.5rem;
@@ -195,18 +197,20 @@ button:focus-visible {
   font-size: 0.95rem;
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  background: linear-gradient(var(--color-accent), var(--color-accent)) left bottom / 0 2px no-repeat;
+  transition: color 0.15s ease, background-size 0.25s ease;
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
   color: var(--color-ink);
+  background-size: 100% 2px;
 }
 
 .nav-links a.is-active {
   color: var(--color-ink);
   font-weight: 600;
-  border-bottom-color: var(--color-accent);
+  background-size: 100% 2px;
 }
 
 .nav-toggle {
@@ -229,22 +233,23 @@ button:focus-visible {
 /* Hero (home) */
 
 .hero {
-  padding: clamp(3rem, 7vw, 5.5rem) 0;
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
 }
 
 .hero-layout {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(1.5rem, 5vw, 4rem);
 }
 
 .hero-frame {
-  margin: 0;
-  border-radius: 10px;
+  width: min(100%, 620px);
+  margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+  border-radius: 14px;
   overflow: hidden;
   background: var(--color-bg-alt);
-  box-shadow: 0 18px 40px rgba(12, 21, 64, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 128, 0.14);
 }
 
 .hero-frame img {
@@ -253,14 +258,77 @@ button:focus-visible {
   height: auto;
 }
 
-@media (max-width: 900px) {
-  .hero-layout {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-  .hero-frame {
-    max-width: 480px;
-  }
+/* Hero lines rise in one after another on load */
+.hero-rise {
+  animation: heroRise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.hero-rise:nth-child(2) { animation-delay: 0.08s; }
+.hero-rise:nth-child(3) { animation-delay: 0.16s; }
+.hero-rise:nth-child(4) { animation-delay: 0.24s; }
+.hero-rise:nth-child(5) { animation-delay: 0.32s; }
+.hero-rise:nth-child(6) { animation-delay: 0.45s; }
+
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: heroPulse 2.4s ease-in-out 3;
+}
+
+@keyframes heroPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 45%, transparent); }
+  50% { box-shadow: 0 0 0 0.4rem transparent; }
+}
+
+/* Logo strip under the hero */
+.trust-strip {
+  padding: 0 0 var(--space-5);
+  text-align: center;
+}
+
+.trust-label {
+  margin: 0 0 var(--space-3);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-ink-muted);
+}
+
+.trust-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3) clamp(1.5rem, 5vw, 3.5rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.trust-logos img {
+  display: block;
+  height: 30px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.trust-logos li:hover img {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 .hero-eyebrow {
@@ -273,17 +341,18 @@ button:focus-visible {
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 6.5vw, 4.5rem);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.015em;
+  font-size: clamp(3.2rem, 9vw, 6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  margin: 0 0 var(--space-2);
 }
 
 .hero-title {
   font-size: 1.15rem;
   color: var(--color-ink-muted);
   max-width: 640px;
-  margin: var(--space-1) 0 var(--space-1);
+  margin: var(--space-1) auto var(--space-1);
 }
 
 .hero-location {
@@ -295,17 +364,20 @@ button:focus-visible {
 .hero-actions {
   display: flex;
   gap: var(--space-2);
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .btn {
-  display: inline-block;
-  padding: 0.65rem 1.3rem;
-  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
   text-decoration: none;
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -320,16 +392,29 @@ button:focus-visible {
 
 .btn-primary:hover {
   background: var(--color-accent-dark);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-accent) 28%, transparent);
+}
+
+.btn-primary::after,
+.cta-pill::after {
+  content: "\2192";
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover::after,
+.cta-pill:hover::after {
+  transform: translateX(4px);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--color-ink);
-  border: 1px solid var(--color-border);
+  border: 1px solid color-mix(in srgb, var(--color-navy) 35%, white);
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-ink-muted);
+  border-color: var(--color-navy);
+  background: color-mix(in srgb, var(--color-ice) 22%, transparent);
 }
 
 /* Sections */
@@ -839,17 +924,6 @@ button:focus-visible {
   margin: 0 0 0.25rem;
 }
 
-.skill-key {
-  color: var(--color-ink-muted);
-  font-size: 0.9rem;
-  max-width: 70ch;
-}
-
-.skill-key strong {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
 .skill-list {
   list-style: none;
   padding: 0;
@@ -857,22 +931,9 @@ button:focus-visible {
 }
 
 .skill-list li {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-2);
   padding: 0.5rem 0;
   border-top: 1px solid var(--color-border);
   font-size: 0.9rem;
-}
-
-.skill-level {
-  flex-shrink: 0;
-  color: var(--color-ink-muted);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
 .pill-list {
@@ -1377,7 +1438,7 @@ button:focus-visible {
   gap: 0.5rem;
   padding: 0.85rem 1.6rem;
   border-radius: 999px;
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
