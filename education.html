@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=25" />
+  <link rel="stylesheet" href="styles.css?v=26" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -54,19 +54,33 @@
         <p class="kicker reveal">
           <span class="kicker-label">Education</span>
         </p>
-        <ul class="cv-list">
-          <li class="cv-entry reveal">
-            <img class="cv-logo" src="assets/logos/schools/thunderbird-seal.svg" alt="" aria-hidden="true" loading="lazy" />
-            <div class="cv-entry-body">
-              <div class="cv-entry-head">
-                <h3>Master's in Global Management: Global Business (STEM)</h3>
-                <span class="cv-entry-dates">Aug 2024 &ndash; May 2026</span>
-              </div>
-              <p class="cv-entry-org">Thunderbird School of Global Management, Arizona State University &middot; GPA 3.67</p>
+
+        <article class="edu-feature reveal">
+          <div class="edu-feature-head">
+            <img class="edu-feature-logo" src="assets/logos/schools/thunderbird-seal.svg" alt="" loading="lazy" />
+            <div>
+              <p class="edu-feature-eyebrow">Most recent &middot; Aug 2024 &ndash; May 2026</p>
+              <h2>Master's in Global Management: Global Business (STEM)</h2>
+              <p class="edu-feature-org">Thunderbird School of Global Management, Arizona State University</p>
             </div>
-          </li>
+          </div>
+          <dl class="edu-stats">
+            <div><dd>3.67</dd><dt>GPA</dt></div>
+            <div><dd>STEM</dd><dt>Designated degree</dt></div>
+            <div><dd>2026</dd><dt>Graduated</dt></div>
+          </dl>
+          <h3 class="edu-courses-label">Relevant courses</h3>
+          <ul class="edu-courses">
+            <li>Global Marketing &amp; Data Analytics</li>
+            <li>Global Leadership &amp; Strategy</li>
+            <li>Leading Global Projects</li>
+            <li>Customer Decision Making</li>
+          </ul>
+        </article>
+
+        <ul class="cv-list edu-earlier">
           <li class="cv-entry reveal">
-            <img class="cv-logo" src="assets/logos/schools/mumbai-university.svg" alt="" aria-hidden="true" loading="lazy" />
+            <img class="cv-logo" src="assets/logos/schools/mumbai-university.svg" alt="" loading="lazy" />
             <div class="cv-entry-body">
               <div class="cv-entry-head">
                 <h3>Master of Commerce, Business Administration and Management</h3>
@@ -76,7 +90,7 @@
             </div>
           </li>
           <li class="cv-entry reveal">
-            <img class="cv-logo" src="assets/logos/schools/mithibai-college.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img class="cv-logo" src="assets/logos/schools/mithibai-college.jpg" alt="" loading="lazy" />
             <div class="cv-entry-body">
               <div class="cv-entry-head">
                 <h3>Bachelor of Commerce, Marketing/Marketing Management</h3>
@@ -94,24 +108,36 @@
         <p class="kicker reveal">
           <span class="kicker-label">Certifications</span>
         </p>
-        <div class="cv-cert-group reveal">
-          <h3>Google</h3>
-          <ul class="cv-cert-list">
-            <li>Google Ads</li>
-            <li>Google Data Analytics</li>
-          </ul>
-        </div>
-        <div class="cv-cert-group reveal">
-          <h3>LinkedIn Learning</h3>
-          <ul class="cv-cert-list">
-            <li>Agile Practices Using AI</li>
-            <li>AI for Data Analysis</li>
-            <li>Generative AI for Business Leaders</li>
-            <li>Power BI</li>
-            <li>What Is Generative AI?</li>
-            <li>Making Key Decisions as a Manager</li>
-            <li>Digital Marketing</li>
-          </ul>
+        <div class="cert-grid">
+          <div class="cert-group reveal">
+            <h3>AI</h3>
+            <ul class="cert-list">
+              <li class="cert-item"><img src="assets/logos/certs/linkedin-learning.svg" alt="" loading="lazy" /><span><span class="cert-name">Agile Practices Using AI</span><span class="cert-issuer">LinkedIn Learning</span></span></li>
+              <li class="cert-item"><img src="assets/logos/certs/linkedin-learning.svg" alt="" loading="lazy" /><span><span class="cert-name">AI for Data Analysis</span><span class="cert-issuer">LinkedIn Learning</span></span></li>
+              <li class="cert-item"><img src="assets/logos/certs/linkedin-learning.svg" alt="" loading="lazy" /><span><span class="cert-name">Generative AI for Business Leaders</span><span class="cert-issuer">LinkedIn Learning</span></span></li>
+              <li class="cert-item"><img src="assets/logos/certs/linkedin-learning.svg" alt="" loading="lazy" /><span><span class="cert-name">What Is Generative AI?</span><span class="cert-issuer">LinkedIn Learning</span></span></li>
+            </ul>
+          </div>
+          <div class="cert-group reveal">
+            <h3>Analytics</h3>
+            <ul class="cert-list">
+              <li class="cert-item"><img src="assets/logos/certs/google-g.svg" alt="" loading="lazy" /><span><span class="cert-name">Google Data Analytics</span><span class="cert-issuer">Google</span></span></li>
+              <li class="cert-item"><img src="assets/logos/certs/linkedin-learning.svg" alt="" loading="lazy" /><span><span class="cert-name">Power BI</span><span class="cert-issuer">LinkedIn Learning</span></span></li>
+            </ul>
+          </div>
+          <div class="cert-group reveal">
+            <h3>Marketing</h3>
+            <ul class="cert-list">
+              <li class="cert-item"><img src="assets/logos/certs/google-g.svg" alt="" loading="lazy" /><span><span class="cert-name">Google Ads</span><span class="cert-issuer">Google</span></span></li>
+              <li class="cert-item"><img src="assets/logos/certs/linkedin-learning.svg" alt="" loading="lazy" /><span><span class="cert-name">Digital Marketing</span><span class="cert-issuer">LinkedIn Learning</span></span></li>
+            </ul>
+          </div>
+          <div class="cert-group reveal">
+            <h3>Management</h3>
+            <ul class="cert-list">
+              <li class="cert-item"><img src="assets/logos/certs/linkedin-learning.svg" alt="" loading="lazy" /><span><span class="cert-name">Making Key Decisions as a Manager</span><span class="cert-issuer">LinkedIn Learning</span></span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
