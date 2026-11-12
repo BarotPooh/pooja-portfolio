@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=26" />
+  <link rel="stylesheet" href="styles.css?v=27" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -53,8 +53,34 @@
     <section class="section">
       <div class="container">
         <a class="back-link" href="projects.html">&larr; All projects</a>
-
-        <p class="case-question reveal">&ldquo;Where exactly is the pipeline leaking, and what would it take to close the gap?&rdquo;</p>
+        <ol class="story-board" aria-label="The case study in four steps">
+          <li class="story-step story-step--question reveal">
+            <p class="story-label"><span aria-hidden="true">1</span> The question</p>
+            <p class="story-quote">&ldquo;Where exactly is the pipeline leaking, and what would it take to close the gap?&rdquo;</p>
+          </li>
+          <li class="story-step reveal">
+            <p class="story-label"><span aria-hidden="true">2</span> What was in the way</p>
+            <p>20&ndash;25% of leads were being lost between first contact and onboarding, and no one could say where.</p>
+          </li>
+          <li class="story-step reveal">
+            <p class="story-label"><span aria-hidden="true">3</span> What I did</p>
+            <ul class="story-actions">
+              <li>Synthesized 15+ stakeholder interviews</li>
+              <li>Mapped the CRM bottlenecks and redesigned onboarding</li>
+              <li>Built a segmented nurture pipeline with email and LinkedIn sequences</li>
+              <li>Presented expansion scenarios for three new channels</li>
+            </ul>
+          </li>
+          <li class="story-step story-step--result reveal">
+            <p class="story-label"><span aria-hidden="true">4</span> What changed</p>
+            <ul class="story-results">
+              <li><span class="story-figure">+20%</span><span class="story-figure-label">conversion lift</span></li>
+              <li><span class="story-figure">&minus;30%</span><span class="story-figure-label">cycle time</span></li>
+              <li><span class="story-figure">20&ndash;25%</span><span class="story-figure-label">lead leakage identified &amp; closed</span></li>
+              <li><span class="story-figure">15+</span><span class="story-figure-label">stakeholder interviews synthesized</span></li>
+            </ul>
+          </li>
+        </ol>
 
         <dl class="case-meta reveal">
           <div>
@@ -70,6 +96,9 @@
             <dd>CRM diagnosis, workflow redesign, outreach sequences across 3 accounts</dd>
           </div>
         </dl>
+
+        <details class="case-details">
+          <summary>Read the full write-up</summary>
 
         <div class="case-block reveal">
           <h2>Problem</h2>
@@ -121,6 +150,8 @@
             the workflow mattered more than adding new outreach on top of a broken one.
           </p>
         </div>
+
+        </details>
 
         <ul class="case-tags reveal">
           <li>CRM</li>

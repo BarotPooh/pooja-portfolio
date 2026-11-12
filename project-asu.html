@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=26" />
+  <link rel="stylesheet" href="styles.css?v=27" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -53,8 +53,33 @@
     <section class="section">
       <div class="container">
         <a class="back-link" href="projects.html">&larr; All projects</a>
-
-        <p class="case-question reveal">&ldquo;Was the content actually landing, and what was slowing the team down?&rdquo;</p>
+        <ol class="story-board" aria-label="The case study in four steps">
+          <li class="story-step story-step--question reveal">
+            <p class="story-label"><span aria-hidden="true">1</span> The question</p>
+            <p class="story-quote">&ldquo;Was the content actually landing, and what was slowing the team down?&rdquo;</p>
+          </li>
+          <li class="story-step reveal">
+            <p class="story-label"><span aria-hidden="true">2</span> What was in the way</p>
+            <p>Content went out across many channels with no shared calendar or reporting loop, so deadlines slipped and no one knew what was landing.</p>
+          </li>
+          <li class="story-step reveal">
+            <p class="story-label"><span aria-hidden="true">3</span> What I did</p>
+            <ul class="story-actions">
+              <li>Built a multi-channel content calendar</li>
+              <li>Set up a performance reporting process</li>
+              <li>Partnered with Brand Strategy, Media Relations and Strategic Communications</li>
+              <li>Used AI tools to speed up reporting and production</li>
+            </ul>
+          </li>
+          <li class="story-step story-step--result reveal">
+            <p class="story-label"><span aria-hidden="true">4</span> What changed</p>
+            <ul class="story-results">
+              <li><span class="story-figure">+25%</span><span class="story-figure-label">team output</span></li>
+              <li><span class="story-figure">+25%</span><span class="story-figure-label">audience engagement</span></li>
+              <li><span class="story-figure">Multi-channel</span><span class="story-figure-label">calendar &amp; reporting, on deadline</span></li>
+            </ul>
+          </li>
+        </ol>
 
         <dl class="case-meta reveal">
           <div>
@@ -70,6 +95,9 @@
             <dd>Content calendar, publishing workflow, performance reporting</dd>
           </div>
         </dl>
+
+        <details class="case-details">
+          <summary>Read the full write-up</summary>
 
         <div class="case-block reveal">
           <h2>Problem</h2>
@@ -118,6 +146,8 @@
             and made it obvious which work to do more of.
           </p>
         </div>
+
+        </details>
 
         <ul class="case-tags reveal">
           <li>Content Operations</li>

@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=26" />
+  <link rel="stylesheet" href="styles.css?v=27" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -53,8 +53,32 @@
     <section class="section">
       <div class="container">
         <a class="back-link" href="projects.html">&larr; All projects</a>
-
-        <p class="case-question reveal">&ldquo;What work shouldn't a human be doing by hand anymore?&rdquo;</p>
+        <ol class="story-board" aria-label="The case study in four steps">
+          <li class="story-step story-step--question reveal">
+            <p class="story-label"><span aria-hidden="true">1</span> The question</p>
+            <p class="story-quote">&ldquo;What work shouldn't a human be doing by hand anymore?&rdquo;</p>
+          </li>
+          <li class="story-step reveal">
+            <p class="story-label"><span aria-hidden="true">2</span> What was in the way</p>
+            <p>Repetitive reporting, reformatting and status updates were crowding out the actual thinking.</p>
+          </li>
+          <li class="story-step reveal">
+            <p class="story-label"><span aria-hidden="true">3</span> What I did</p>
+            <ul class="story-actions">
+              <li>Built n8n workflows to take over reporting and data handling</li>
+              <li>Used AI tools daily for research, competitor analysis and drafting</li>
+              <li>Designed and built this site with AI</li>
+            </ul>
+          </li>
+          <li class="story-step story-step--result reveal">
+            <p class="story-label"><span aria-hidden="true">4</span> What changed</p>
+            <ul class="story-results">
+              <li><span class="story-figure">AI-first</span><span class="story-figure-label">habit built into daily work</span></li>
+              <li><span class="story-figure">Less busywork</span><span class="story-figure-label">repetitive reporting automated away</span></li>
+              <li><span class="story-figure">This site</span><span class="story-figure-label">designed &amp; shipped with AI</span></li>
+            </ul>
+          </li>
+        </ol>
 
         <dl class="case-meta reveal">
           <div>
@@ -70,6 +94,9 @@
             <dd>Workflow design, tool selection, build &amp; iteration</dd>
           </div>
         </dl>
+
+        <details class="case-details">
+          <summary>Read the full write-up</summary>
 
         <div class="case-block reveal">
           <h2>Problem</h2>
@@ -116,6 +143,8 @@
             more time and attention left for it.
           </p>
         </div>
+
+        </details>
 
         <ul class="case-tags reveal">
           <li>n8n</li>
