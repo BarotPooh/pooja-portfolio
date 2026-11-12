@@ -40,16 +40,17 @@ const revealObserver = new IntersectionObserver(
 
 revealTargets.forEach((target) => revealObserver.observe(target));
 
-// Count the Key Results numbers up from zero when they scroll into view
+// Count headline numbers up from zero when they scroll into view
 const COUNT_UP_MS = 900;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function countUp(el, target) {
+  const { prefix, suffix } = el.dataset;
   const start = performance.now();
   function tick(now) {
     const progress = Math.min((now - start) / COUNT_UP_MS, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = `${Math.round(target * eased)}%`;
+    el.textContent = `${prefix}${Math.round(target * eased)}${suffix}`;
     if (progress < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
@@ -66,11 +67,11 @@ if (!prefersReducedMotion) {
     },
     { threshold: 0.6 }
   );
-  document.querySelectorAll(".stat dd").forEach((dd) => {
-    const match = dd.textContent.trim().match(/^(\d+)%$/);
+  document.querySelectorAll(".stat dd, .proof-figure").forEach((figure) => {
+    const match = figure.textContent.trim().match(/^(\D*)(\d+)(\D*)$/);
     if (!match) return;
-    dd.dataset.count = match[1];
-    countObserver.observe(dd);
+    [, figure.dataset.prefix, figure.dataset.count, figure.dataset.suffix] = match;
+    countObserver.observe(figure);
   });
 }
 
