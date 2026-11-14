@@ -2312,3 +2312,14 @@ button:focus-visible {
     transform: none !important;
   }
 }
+
+/* Case-study PDFs */
+.case-pdf { margin: var(--space-4) 0; }
+.pdf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-3); list-style: none; padding: 0; margin: var(--space-4) 0 0; }
+.pdf-card { display: flex; flex-direction: column; gap: 0.5rem; height: 100%; padding: var(--space-3); background: #fff; border: 1px solid color-mix(in srgb, var(--color-slate) 30%, white); border-top: 3px solid var(--color-accent); border-radius: 12px; color: var(--color-text); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.pdf-card:hover, .pdf-card:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 128, 0.1); }
+.pdf-card-org { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent); margin: 0; }
+.pdf-card h3 { margin: 0; font-family: var(--font-heading); font-size: 1.25rem; }
+.pdf-card p { margin: 0; }
+.pdf-card-action { margin-top: auto; padding-top: 0.5rem; font-weight: 600; color: var(--color-navy); }
+@media (prefers-reduced-motion: reduce) { .pdf-card { transition: none; } .pdf-card:hover { transform: none; } }

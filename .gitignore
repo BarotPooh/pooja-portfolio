@@ -12,3 +12,6 @@ _source-files/
 
 # Keep the optimized site assets tracked
 !assets/
+
+# Published case-study PDFs
+!assets/case-studies/*.pdf
