@@ -2,7 +2,7 @@
 
 Personal portfolio site for Pooja Barot, MBA (STEM) — Business & Marketing Analyst specializing in GTM strategy, market strategy, and performance analytics.
 
-**Live site:** https://barotpooh.github.io/pooja-portfolio/
+**Live site:** https://poojadbarot.github.io/
 
 ## Pages
 
