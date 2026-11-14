@@ -15,3 +15,6 @@ _source-files/
 
 # Published case-study PDFs
 !assets/case-studies/*.pdf
+
+# Published resume
+!assets/resumes/*.docx
