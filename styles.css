@@ -2326,9 +2326,6 @@ button:focus-visible {
 
 /* Case-study dashboards */
 .case-dash { margin: var(--space-4) 0 var(--space-2); }
-.case-dash-photo { display: block; width: 100%; height: auto; margin-bottom: var(--space-3); border-radius: 12px; }
 .case-dash-link { display: block; border: 1px solid color-mix(in srgb, var(--color-slate) 35%, white); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 28px rgba(0, 0, 128, 0.08); background: #fff; }
 .case-dash-link img { display: block; width: 100%; height: auto; }
 .case-dash figcaption { margin-top: 0.6rem; font-size: 0.9rem; color: var(--color-slate-dark, #4a5b6c); }
-.pdf-card-thumb { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; border: 1px solid color-mix(in srgb, var(--color-slate) 30%, white); border-radius: 8px; margin-bottom: 0.25rem; }
-.pdf-card-thumb--wide { object-fit: contain; object-position: center; background: #fff; }
