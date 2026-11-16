@@ -2329,3 +2329,11 @@ button:focus-visible {
 .case-dash-link { display: block; border: 1px solid color-mix(in srgb, var(--color-slate) 35%, white); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 28px rgba(0, 0, 128, 0.08); background: #fff; }
 .case-dash-link img { display: block; width: 100%; height: auto; }
 .case-dash figcaption { margin-top: 0.6rem; font-size: 0.9rem; color: var(--color-slate-dark, #4a5b6c); }
+
+/* AI agents */
+.agent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-3); list-style: none; padding: 0; margin: var(--space-4) 0 0; }
+.agent-card { display: flex; flex-direction: column; gap: 0.6rem; padding: var(--space-3); background: #fff; border: 1px solid color-mix(in srgb, var(--color-slate) 30%, white); border-top: 3px solid var(--color-accent); border-radius: 12px; }
+.agent-card h3 { margin: 0; font-family: var(--font-heading); font-size: 1.35rem; color: var(--color-navy); }
+.agent-card p { margin: 0; }
+.agent-type { align-self: flex-start; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent); border: 1px solid currentColor; border-radius: 999px; padding: 0.15rem 0.6rem; }
+.agent-stack { margin-top: auto !important; padding-top: 0.5rem; font-size: 0.85rem; color: var(--color-ink-muted); }

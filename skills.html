@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=32" />
+  <link rel="stylesheet" href="styles.css?v=33" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -46,6 +46,38 @@
       <div class="container">
         <h1>Skills</h1>
         <p>Four years of depth across Marketing, Business Operations, and Strategy &amp; Consulting.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="agents">
+      <div class="container">
+        <p class="kicker reveal">
+          <span class="kicker-label">AI Agents &amp; Automation</span>
+        </p>
+        <h2 class="reveal">What I&rsquo;ve built in Claude Code</h2>
+        <p class="lede reveal">
+          Three builds, end to end. One is an agent, one is an app, and one is a workflow I use on this site.
+        </p>
+        <ul class="agent-grid">
+          <li class="agent-card reveal">
+            <p class="agent-type">Agent</p>
+            <h3>Job Agent</h3>
+            <p>A job-search pipeline I built for my own search. It scans public company job boards (Greenhouse, Lever and Ashby), filters by title, location, years required and sponsorship language, and checks employers against H-1B and E-Verify records. For the best matches it drafts a tailored one-page resume and cover letter from a fact file, so every bullet traces back to a real result, then lint-checks the format. Nothing is sent until I approve it, and the final submit click is always mine.</p>
+            <p class="agent-stack">Claude Code &middot; Python &middot; Node.js</p>
+          </li>
+          <li class="agent-card reveal">
+            <p class="agent-type">App</p>
+            <h3>GlucoTrack</h3>
+            <p>A calorie and carb tracker for Type 1 diabetes, built as a web app. It logs food and glucose readings, estimates a carb bolus, tracks time in range and weight trends, saves favorite meals and recipes, and looks up foods online and by barcode through the USDA and Open Food Facts databases.</p>
+            <p class="agent-stack">Claude Code &middot; JavaScript &middot; USDA &amp; Open Food Facts APIs</p>
+          </li>
+          <li class="agent-card reveal">
+            <p class="agent-type">Workflow</p>
+            <h3>Role-targeted portfolio builder</h3>
+            <p>A Claude Code workflow that turned this portfolio into role-specific versions for marketing, business operations, strategy and product marketing. It rewrites each page&rsquo;s results, tools and case studies for the role, keeps job titles and dates unchanged, and uses only my real numbers.</p>
+            <p class="agent-stack">Claude Code &middot; Python</p>
+          </li>
+        </ul>
       </div>
     </section>
 
