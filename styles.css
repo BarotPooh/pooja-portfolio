@@ -2337,3 +2337,39 @@ button:focus-visible {
 .agent-card p { margin: 0; }
 .agent-type { align-self: flex-start; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent); border: 1px solid currentColor; border-radius: 999px; padding: 0.15rem 0.6rem; }
 .agent-stack { margin-top: auto !important; padding-top: 0.5rem; font-size: 0.85rem; color: var(--color-ink-muted); }
+
+/* Apple-style refinements: size-aware type, instant press feedback, contrast */
+h1 { line-height: 1.06; letter-spacing: -0.02em; font-optical-sizing: auto; }
+h2 { line-height: 1.12; letter-spacing: -0.014em; font-optical-sizing: auto; }
+h3 { letter-spacing: -0.005em; }
+
+.btn, .cta-pill, .cta-band-btn, .pdf-card, .nav-links a, .proof-link {
+  transition-property: transform, box-shadow, background-color, color, border-color;
+}
+.btn:active, .cta-pill:active, .cta-band-btn:active, .pdf-card:active {
+  transform: scale(0.97);
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+}
+
+@media (prefers-contrast: more) {
+  .pdf-card, .agent-card, .domain-card, .tool-card, .case-dash-link { border-color: var(--color-ink-muted); }
+  .agent-stack, .case-dash figcaption { color: var(--color-ink); }
+}
+
+/* Frosted header: content scrolls under a translucent layer */
+.site-header {
+  background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+}
+@media (prefers-reduced-transparency: reduce) {
+  .site-header { background: var(--color-bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* Softer, spring-like settle on card hovers */
+.domain-card, .tool-card, .pdf-card, .project-index-card, .contact-card {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 0.4s;
+}
+.pdf-card:active { transition-duration: 0.1s; }
