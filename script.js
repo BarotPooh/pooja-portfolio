@@ -113,3 +113,12 @@ if (navBrand) {
     }
   });
 }
+
+// Header edge: soften the hard line into a blur fade once content scrolls under it
+const siteHeader = document.querySelector(".site-header");
+if (siteHeader) {
+  const SCROLL_EDGE_PX = 8;
+  const syncHeaderEdge = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > SCROLL_EDGE_PX);
+  syncHeaderEdge();
+  window.addEventListener("scroll", syncHeaderEdge, { passive: true });
+}
